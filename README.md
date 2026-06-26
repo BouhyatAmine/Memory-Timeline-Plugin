@@ -1,4 +1,4 @@
-# mem_timeline — Timeline forensique d'activité mémoire Windows
+# memory_activity_timeline — Timeline forensique d'activité mémoire Windows
 
 > Projet réalisé par : **Mohammed Amine BOUHYAT**, **Zoubir BEL AIACHI**, **Ziad ESSAIDI**, **Mamadou Tanou DIALLO**
 
@@ -7,12 +7,12 @@ forensique de dumps mémoire Windows avec **Volatility 3** :
 
 | Fichier | Rôle |
 |---|---|
-| `mem_timeline.py` | Plugin Volatility 3 qui extrait une timeline d'événements (création de processus, threads, chargement de DLL) depuis un dump mémoire `.raw` |
+| `memory_activity_timeline.py` | Plugin Volatility 3 qui extrait une timeline d'événements (création de processus, threads, chargement de DLL) depuis un dump mémoire `.raw` |
 | `mem_timeline_html.py` | Script autonome qui transforme le JSON produit par le plugin en un rapport HTML interactif (filtrage, recherche, regroupement par processus) |
 
 ---
 
-## 1. `mem_timeline.py` — Plugin Volatility 3
+## 1. `memory_activity_timeline.py` — Plugin Volatility 3
 
 ### Prérequis
 
@@ -23,7 +23,7 @@ forensique de dumps mémoire Windows avec **Volatility 3** :
 
 Copier le fichier dans le dossier des plugins Windows de Volatility 3 :
 
-volatility3/plugins/windows/mem_timeline.py
+volatility3/plugins/windows/memory_activity_timeline.py
 
 ### Ce que fait le plugin
 
@@ -45,7 +45,7 @@ grâce à `TimelineEvent.__lt__`) avant d'être affichés ou exportés.
 
 ### Exécution
 
-python vol.py -f "dump.raw" windows.mem_timeline.MemTimeline
+python vol.py -f "dump.raw" windows.memory_activity_timeline.MemTimeline
 
 ### Options disponibles
 
@@ -59,13 +59,13 @@ python vol.py -f "dump.raw" windows.mem_timeline.MemTimeline
 # Exemples
 
 ### Timeline complète, affichée dans la console
-`python vol.py -f "dump.raw" windows.mem_timeline.MemTimeline`
+`python vol.py -f "dump.raw" windows.memory_activity_timeline.MemTimeline`
 
 ### Timeline limitée à un processus, exportée en JSON
-`python vol.py -f "dump.raw" windows.mem_timeline.MemTimeline --pid 1234 --json-output timeline.json`
+`python vol.py -f "dump.raw" windows.memory_activity_timeline.MemTimeline --pid 1234 --json-output timeline.json`
 
 ### Sans les événements de threads (timeline plus légère)
-`python vol.py -f "dump.raw" windows.mem_timeline.MemTimeline --include-threads False --json-output timeline.json`
+`python vol.py -f "dump.raw" windows.memory_activity_timeline.MemTimeline --include-threads False --json-output timeline.json`
 
 # Valeur ajoutée
 
@@ -93,7 +93,7 @@ python vol.py -f "dump.raw" windows.mem_timeline.MemTimeline
 ### Prérequis
 
 - Python 3.8+ (aucune dépendance externe : seulement la bibliothèque standard)
-- Un fichier `timeline.json` produit par `mem_timeline.py`
+- Un fichier `timeline.json` produit par `memory_activity_timeline.py`
 
 ### Exécution
 
