@@ -131,3 +131,11 @@ Fonctionnalités du rapport :
 - **Plage temporelle globale** affichée dans la barre supérieure
 - Boutons **Expand All / Collapse All / Reset**
 
+## Exemple de rapport généré
+
+Le fichier `timeline_report.html` fourni dans ce dépôt est un exemple concret
+de rapport généré par le workflow complet décrit ci-dessus. Il a été produit
+à partir du dump mémoire d'une **machine virtuelle infectée**, utilisée dans
+le cadre du cours d'**analyse de malware**. Il permet de visualiser
+directement le rendu du rapport HTML interactif sans avoir à effectuer
+l'analyse soi-même.
